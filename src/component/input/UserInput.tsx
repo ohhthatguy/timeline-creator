@@ -42,14 +42,14 @@ const UserInput = () => {
 
   return (
 
-    <div className="border-2 border-red-900  p-8">
+    <div className="  ">
 
         <form onSubmit={handleSubmit(handleSubmission)}>
 
             {
                 fields.map((e, index)=>(
-
-                    <section key={e.id} className="flex gap-4 m-2">
+                    // border-2 border-green-800
+                    <section key={e.id} className="shadow-md p-2 flex flex-col gap-3 m-2 tablet:flex-row tablet:justify-between">
  
                             <Input type="number" placeholder="Date" {...control.register(`userInputData.${index}.date`, {valueAsNumber: true})} className={errors.userInputData?.[index]?.date ? 'border-red-700' : '' } />
 
@@ -74,7 +74,7 @@ const UserInput = () => {
                 ))
             }
 
-            <section className="flex justify-between mt-8">
+            <section className="flex justify-between mt-8 mb-2 mx-2">
                 <Button className="active:scale-90" type="button" onClick={()=> append({date: 1500, event: ""})}> Add Another </Button>
 
                 <Button className="active:scale-90" type="submit">

@@ -54,7 +54,15 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		}
-  	}
+  	},
+
+	screens: {
+		'mobile': '320px', // from 0 to 320px its mobile size
+		'tablet': '600px', //from 321px to 600px its tablet size
+		'bigtablet': '768px',
+		'laptop':'1024px'
+	}
+	
   },
   plugins: [require("tailwindcss-animate")],
 }
