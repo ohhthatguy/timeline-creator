@@ -55,6 +55,25 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%
   }
+
+  .custom-scrollbar {
+    scrollbar-width:thin;  /* For Firefox */
+    scrollbar-color: green transparent; /* Thumb color and track color */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 100px; /* Width of the scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4b5563; /* Thumb color */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #d1d5db; /* Track color */
+  }
+  
 }
 @layer base {
   * {

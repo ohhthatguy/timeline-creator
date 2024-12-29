@@ -35,9 +35,13 @@ return(
 
   return (
     
-    <div className='border-2 border-black  bg-gray-800 text-white'>
+    <div className='text-left '>
+
+        <div>
+            <Button onClick={copycode} className="hover:scale-105  active:scale-90 ">/Copy code</Button>
+        </div>
         
-    {
+    {/* {
     userData?.length > 0 ?
          
     <div className='border-2 border-black max-h-80 overflow-y-scroll pl-2 relative'>
@@ -61,7 +65,7 @@ return(
     <div className='border-2 border-black  bg-gray-800 text-white'>
 
         Give some data
-    </div>}
+    </div>} */}
 
     </div>)
 

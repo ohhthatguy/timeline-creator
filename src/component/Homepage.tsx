@@ -6,7 +6,7 @@ import { GlobalFormProvider } from "./input/schemas"
 import BasicTimeline from "./timeline/BasicTimeline"
 import Timeline2 from "./timeline/Timeline2"
 import Timeline3 from "./timeline/Timeline3"
-import Test from "./timeline/test"
+
 
 import { useNavigate } from "react-router-dom"
 
@@ -22,7 +22,9 @@ const Homepage = () => {
       </div>
 
         
-       <nav className="text-[1.3rem] z-20 px-3 ">timeline-creator</nav>
+       <nav className="text-[1.3rem] z-20 px-3 ">
+        <img src="timeline-creator-logo.png" className="w-30 h-14" alt="logo" />
+       </nav>
     
        <section className=" h-screen py-10 px-2  z-30 relative">
 

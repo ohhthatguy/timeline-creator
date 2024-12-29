@@ -33,13 +33,15 @@ const ChooseLayout = () => {
           </div>
     
             
-           <nav className="text-[1.3rem] z-20 px-3 ">timeline-creator</nav>
+          <nav className="text-[1.3rem] z-20 px-3 ">
+        <img src="timeline-creator-logo.png" className="w-30 h-14" alt="logo" />
+       </nav>
         
           <section className="relative z-40 p-2 ">
 
             <h1>choose a layout!</h1>
 
-            <div className=" p-4 h-screen overflow-y-auto  ">
+            <div className=" p-4 h-screen overflow-y-auto custom-scrollbar ">
                 {
                     layout?.map((e,index)=>(
 
