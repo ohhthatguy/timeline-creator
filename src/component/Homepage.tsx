@@ -23,7 +23,7 @@ const Homepage = () => {
 
         
        <nav className="text-[1.3rem] z-20 px-3 ">
-        <img src="timeline-creator-logo.png" className="w-30 h-14" alt="logo" />
+        <img src="/timeline-creator-logo.png" className="w-30 h-14" alt="logo" />
        </nav>
     
        <section className=" h-screen py-10 px-2  z-30 relative">

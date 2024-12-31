@@ -8,17 +8,17 @@ const ChooseLayout = () => {
     const layout:layoutFinal[] = [
         {
             
-            photo: 'src/component/basic.PNG',
+            photo: '/basic.PNG',
             description: "Basic Timeline"
         },
 
         {
-            photo: 'src/component/timeline2.PNG',
+            photo: '/timeline2.PNG',
             description: "Basic Timeline2"
         },
 
         {
-            photo: 'src/component/timeline3.PNG',
+            photo: '/timeline3.PNG',
             description: "Horizontal Timeline"
         }
 ]
@@ -34,7 +34,7 @@ const ChooseLayout = () => {
     
             
           <nav className="text-[1.3rem] z-20 px-3 ">
-        <img src="timeline-creator-logo.png" className="w-30 h-14" alt="logo" />
+        <img src="/timeline-logo.png" className="w-30 h-14" alt="logo" />
        </nav>
         
           <section className="relative z-40 p-2 ">
