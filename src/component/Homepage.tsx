@@ -39,7 +39,7 @@ const Homepage = () => {
 
             <div className=" text-[0.8rem] p-7 mobile:px-2 mobile:text-[1rem] tablet:text-[1.1rem]">
               <h5>Let us help! No registration & it's free!</h5>
-              <Button className="h-11 w-16 tablet:h-14 tablet:w-18" onClick={()=>navigate('/layout')}>start</Button>
+              <Button className="h-11 hover:scale-105 active:95 w-16 tablet:h-14 tablet:w-18" onClick={()=>navigate('/layout')}>start</Button>
             </div>
 
             </div>

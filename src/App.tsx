@@ -3,6 +3,7 @@ import ChooseLayout from "./component/ChooseLayout"
 import Final from "./component/Final"
 import { Route, Routes } from "react-router-dom"
 
+import Timeline from "./Timeline"
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
 
 
       </Routes>
+
+      <Timeline />
     </>
   )
 }

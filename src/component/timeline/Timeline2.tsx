@@ -36,44 +36,83 @@ const Timeline2= () => {
 
 // </div>`;
 
-const code = `
- <div className=" p-2 overflow-x-hidden overflow-y-auto  h-[28rem] mobile:w-[20rem] tablet:w-[40rem] bigtablet:w-[50rem] laptop:w-100rem">
+// const code = `
+//  <div className=" p-2 overflow-x-hidden overflow-y-auto  h-[28rem] mobile:w-[20rem] tablet:w-[40rem] bigtablet:w-[50rem] laptop:w-100rem">
 
             
-            <div  className=" grid relative whitespace-pre-wrap break-words w-full ">
+//             <div  className=" grid relative whitespace-pre-wrap break-words w-full ">
            
-                {
-                    userData.length > 0 && userData.map((e,index)=>(
+//                 {
+//                     userData.length > 0 && userData.map((e,index)=>(
 
-                        <div  key={index} className="flex even:justify-end even:items-end ">
+//                         <div  key={index} className="flex even:justify-end even:items-end ">
 
-                            <div className={\`w-[50%]
+//                             <div className={\`w-[50%]
                             
-                            \${index%2==0 ? "border-r-4 border-green-700 translate-x-1  after:right-0" : "border-l-4 border-green-700 after:left-0"}
+//                             \${index%2==0 ? "border-r-4 border-green-700 translate-x-1  after:right-0" : "border-l-4 border-green-700 after:left-0"}
                             
-                            relative break-words after:border-2 after:absolute after:border-blue-900 after:w-4 p-4 after:top-[50%] \`}>
+//                             relative break-words after:border-2 after:absolute after:border-blue-900 after:w-4 p-4 after:top-[50%] \`}>
 
                             
-                                <div className="border-2 border-black text-center rounded  p-1  ">
+//                                 <div className="border-2 border-black text-center rounded  p-1  ">
                                     
-                                    <h2 className="text-lg font-bold">{e.date}</h2>
+//                                     <h2 className="text-lg font-bold">{e.date}</h2>
 
-                                    <h3>{e.event}</h3>
+//                                     <h3>{e.event}</h3>
                                 
-                                </div>
+//                                 </div>
 
-                            </div>
+//                             </div>
 
-                        </div>
+//                         </div>
                        
-                    ))
-                }
+//                     ))
+//                 }
                 
 
-            </div>
+//             </div>
 
-        </div>
-`;
+//         </div>
+// `;
+
+const code = `
+<div className=" p-2 overflow-x-hidden overflow-y-auto  custom-scrollbar  h-[28rem] mobile:w-[20rem] tablet:w-[40rem] bigtablet:w-[50rem] laptop:w-100rem">
+
+    
+    <div  className=" grid relative whitespace-pre-wrap break-words w-full ">
+    
+        {
+            userData.length > 0 && userData.map((e,index)=>(
+
+                <div  key={index} className="flex even:justify-end even:items-end ">
+
+                    <div className={\`w-[50%]
+                    
+                    $\{index%2==0 ? "border-r-4 border-green-700 translate-x-1  after:right-0" : "border-l-4 border-green-700 after:left-0"}
+                    
+                    relative break-words after:border-2 after:absolute after:border-blue-900 after:w-4 p-4 after:top-[50%] \`}>
+
+                    
+                        <div className="border-2 border-blue-800 bg-slate-700 text-center rounded  p-1  ">
+                            
+                            <h2 className="text-lg font-bold">{e.date}</h2>
+
+                            <h3>{e.event}</h3>
+                        
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            ))
+        }
+        
+
+    </div>
+
+</div>
+`
 
   return (
     
@@ -86,7 +125,7 @@ const code = `
         
         {/* border-2 border-red-600 h-full overflow-y-scroll scale-75 mobile:scale-100 grid place-items-center py-5 */}
 
-        <div className=" p-2 overflow-x-hidden overflow-y-auto custom-scrollbar  h-[28rem] mobile:w-[20rem] tablet:w-[40rem] bigtablet:w-[50rem] laptop:w-100rem">
+        <div className=" p-2 overflow-x-hidden overflow-y-auto  custom-scrollbar  h-[28rem] mobile:w-[20rem] tablet:w-[40rem] bigtablet:w-[50rem] laptop:w-100rem">
 
             
             <div  className=" grid relative whitespace-pre-wrap break-words w-full ">
@@ -103,7 +142,7 @@ const code = `
                             relative break-words after:border-2 after:absolute after:border-blue-900 after:w-4 p-4 after:top-[50%] `}>
 
                             {/* border-2 border-blue-900  */}
-                                <div className="border-2 border-black text-center rounded  p-1  ">
+                                <div className="border-2 border-blue-800 bg-slate-700 text-center rounded  p-1  ">
                                     
                                     <h2 className="text-lg font-bold">{e.date}</h2>
 

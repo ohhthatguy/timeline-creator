@@ -15,7 +15,8 @@ const Final = () => {
     <main className='border-4 overflow-hidden border-black  h-screen  relative bg-teal-950 text-white py-2'>
 
     {/* top right blobby circly thing */}
-          <div className=" absolute w-full left-32 top-[-11rem] mobile:left-56 mobile:top-[-13rem] tablet:left-80 tablet:top-[-16rem] bigtablet:top-[-39rem] laptop:top-[-55rem] laptop:left-96 z-10">
+    
+          <div className=" absolute w-full left-32 top-[-11rem] mobile:left-56 mobile:top-[-13rem] tablet:left-80 tablet:top-[-16rem] bigtablet:top-[-39rem] laptop:top-[-70rem] laptop:left-96 z-10">
             <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(248, 117, 55, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(251, 168, 31, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="url(#sw-gradient)" d="M26.2,-32.3C32.2,-26.1,34.2,-16.2,35.9,-6.4C37.5,3.5,38.9,13.4,35,20.4C31.2,27.4,22.1,31.5,12.6,35.3C3,39.1,-6.9,42.7,-15.5,40.4C-24,38.2,-31.3,30.2,-34.8,21.4C-38.3,12.6,-38.2,2.9,-36.4,-6.3C-34.6,-15.5,-31.1,-24.3,-24.8,-30.3C-18.5,-36.4,-9.2,-39.8,0.4,-40.3C10.1,-40.8,20.1,-38.4,26.2,-32.3Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="0" className="transition-all;"></path>              </svg>
           </div>
     

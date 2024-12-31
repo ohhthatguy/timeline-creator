@@ -10,7 +10,7 @@ const GenerateCode = ({data, code}:{data: globalContextType, code:string}) => {
     const finalcode = `
 import React from "react";
     
-const Test = () =>{
+const Timeline = () =>{
         
 const userData = [${userData.map(e => (`{date: ${e.date}, event: "${e.event}"}`))}];
     
@@ -18,7 +18,7 @@ return(
                 ${code}
     );
 }
-    export default Test;
+    export default Timeline;
     `
     const copycode = async(e: React.MouseEvent<HTMLButtonElement>)=>{
         console.log('asd');

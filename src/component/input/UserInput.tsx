@@ -55,7 +55,7 @@ const UserInput = ({name}:{name:string}) => {
                             {
                                 fields.map((e, index)=>(
                                 
-                                    <section key={e.id} className="shadow-md border-2  backdrop-blur-sm p-2 flex flex-col gap-3 m-2 tablet:flex-row tablet:justify-between">
+                                    <section key={e.id} className="shadow-md border-2 border-slate-700 backdrop-blur-sm p-2 flex flex-col gap-3 m-2 tablet:flex-row tablet:justify-between">
                 
                                             <Input type="number" placeholder="Date" {...control.register(`userInputData.${index}.date`, {valueAsNumber: true})} className={errors.userInputData?.[index]?.date ? 'border-red-700' : '' } />
 

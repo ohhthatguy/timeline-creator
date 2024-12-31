@@ -45,7 +45,7 @@ const ChooseLayout = () => {
                 {
                     layout?.map((e,index)=>(
 
-                        <div key={index} onClick={()=>{navigate(`/layout/${e.description}`)}} className="h-96 hover:cursor-pointer 
+                        <div key={index} onClick={()=>{navigate(`/layout/${e.description}`)}} className="h-96 border-2 border-slate-700 backdrop-blur-sm hover:cursor-pointer 
                         scale-100
                         transition-transform
                         duration-300
