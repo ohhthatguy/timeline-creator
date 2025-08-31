@@ -8,10 +8,12 @@ export const GlobalContext = createContext<globalContextType | undefined>(undefi
 
 export const GlobalContextProvider = ({children}: {children: ReactNode}) =>{
 
-    const [userData, setUserData] = useState<userDataType[]>([])
+    const [userData, setUserData] = useState<userDataType[]>([]);
+    const [editData, setEditData] = useState<userDataType>({});
+
     
 
-    return <GlobalContext.Provider value={{userData, setUserData}}>
+    return <GlobalContext.Provider value={{userData, setUserData, editData, setEditData}}>
 
         {children}
     

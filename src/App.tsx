@@ -1,24 +1,17 @@
-import Homepage from "./component/Homepage"
-import ChooseLayout from "./component/ChooseLayout"
-import Final from "./component/Final"
-import { Route, Routes } from "react-router-dom"
+import RouteComponent from "./Routes/RouteComponent"
+import Navbar from "./Components/Navigation/Navbar"
+import Footer from "./Pages/Unprotected/Footer/Footer"
 
 
 function App() {
 
   return (
     <>
-      
-      <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path='/layout' element={<ChooseLayout />} />
-        <Route path='/layout/:name' element={<Final />} />
-
-
-
-      </Routes>
-
-    
+    <div  className="bg-[#597B86] tablet:px-5" >
+      <Navbar />
+      <RouteComponent />
+      </div>
+      <Footer />
     </>
   )
 }

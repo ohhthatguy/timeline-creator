@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui'
 export default {
     darkMode: ["class"],
     content: [
@@ -57,13 +58,16 @@ export default {
   	},
 
 	screens: {
-		'mobile': '320px', // from 0 to 320px its mobile size
-		'tablet': '600px', //from 321px to 600px its tablet size
+		's': '320px', // from 0 to 320px its mobile size
+		'm': '375px', 
+		'l': '425px', // from 0 to 320px its mobile size
+		'tablet': '550px',
+		'sm':'640px',
 		'bigtablet': '768px',
 		'laptop':'1024px'
 	}
 	
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), daisyui],
 }
 
