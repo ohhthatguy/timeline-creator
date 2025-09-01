@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Timeline2 from "./Timeline2/Timeline2";
 import Timeline1 from "./Timeline1/Timeline1";
 import Timeline3 from "./Timeline3/Timeline3";
+import Timeline4 from "./Timeline4/Timeline4";
 
 import { GlobalContext } from "@/context/context";
 
@@ -38,6 +39,7 @@ const TemplatePage = () => {
           <Timeline1 userData={userData}/>
           <Timeline2 userData={userData}/>
           <Timeline3 userData={userData}/>
+          <Timeline4 userData={userData}/>
 
           
 
