@@ -1,83 +1,72 @@
+import { useState } from "react";
 
-import { useState, useRef } from "react";
-
-const getOnlyYear = (dateString:string)=>{
-    const year = dateString.split("/");
-    return year[year.length - 1];
-}
-
+const getOnlyYear = (dateString: string) => {
+  const year = dateString.split("/");
+  return year[year.length - 1];
+};
 
 const Timeline4 = ({ userData }: { userData: any }) => {
-    
   const [visibleCard, setVisibleCard] = useState(0);
+
+
   const [positionX, setpositionX] = useState(1);
-  const parentRef = useRef<HTMLDivElement>(null);
 
-
-  const handlePosition = (oldPos:number, newPos:number, childEle:HTMLElement)=>{
-
-    if(!parentRef.current) return 
-
-    const distBetnParentLeftAndClickedChild =  childEle.getBoundingClientRect().left -
-          parentRef.current.getBoundingClientRect().left;
-
-          console.log(distBetnParentLeftAndClickedChild)
-
-    if(oldPos > newPos){
-        // setpositionX(prev=> prev + 100)
-        setpositionX(distBetnParentLeftAndClickedChild)
-
-    }else{
-        setpositionX((distBetnParentLeftAndClickedChild * -1));
-
-        // setpositionX(prev=> prev - 100);
-    }
-  }
-
-  const handleClick = (i: number, ele:HTMLSpanElement) => {
-    if (visibleCard != i){
-        setVisibleCard(i); // this card was selected. For the date and event
-        handlePosition(visibleCard, i, ele);
+  const handlePosition = (
+    oldPos: number,
+    newPos: number,
+    childEle: HTMLElement
+  ) => {
+    if (oldPos > newPos) {
+      setpositionX(
+        (prev) => prev + (childEle.clientWidth + 10) * (oldPos - newPos)
+      ); //to right
+    } else {
+      setpositionX((childEle.clientWidth + 10) * -1 * newPos); //to eft
     }
 
   };
 
-  console.log(positionX)
+  const handleClick = (i: number, ele: HTMLSpanElement) => {
+    if (visibleCard != i) {
+      setVisibleCard(i); // this card was selected. For the date and event
+      handlePosition(visibleCard, i, ele);
+    }
+  };
+
 
   return (
     <>
-      <div className="h-1/2 w-full overflow-auto border border-red-500  px-5 ml-3 mr-3 my-2 ">
-
-        <div className="border border-green-500 border-t-4  overflow-x-hidden overflow-y-hidden">
-        <div ref={parentRef} className="flex ml-40 border gap-3 ">
-          {userData.map((e: any, index: number) => (
-            <span
-              key={index}
-              className={`border text-4xl hover:cursor-pointer text-orange-400 transition-transform duration-300`}
-                   style={{ transform: `translateX(${positionX}px)` }}
-              onClick={(ele) => handleClick(index, ele.currentTarget)}
-            >
-              {getOnlyYear(e.date)}
-            </span>
-          ))}
-        </div>
-        </div>
-
-        <div className="flex">
-          <div>Left</div>
-          <div className="grid grid-cols-1">
-            <div>{userData[visibleCard].date}</div>
-            <div>{userData[visibleCard].event}</div>
+      <div className="h-1/2 w-full overflow-auto border border-red-500  px-5 ml-3 mr-3 my-2  ">
+        <div className=" overflow-x-hidden overflow-y-hidden">
+          <div className="flex ml-52  gap-3 mt-3">
+            {userData.map((e: any, index: number) => (
+              <span
+                key={index}
+                className={` ${
+                  visibleCard == index
+                    ? "text-5xl text-orange-500 font-bold font-serif"
+                    : "text-4xl text-orange-400"
+                } hover:cursor-pointer  transition-all duration-300 `}
+                style={{ transform: `translateX(${positionX}px)` }}
+                onClick={(ele) => handleClick(index, ele.currentTarget)}
+              >
+                {getOnlyYear(e.date)}
+              </span>
+            ))}
           </div>
-          <div>Right</div>
         </div>
 
-        {/* {
-         userData?.map((e:any,index:any)=>(
-         <Fragment index={index} data={e}  visibleCard={visibleCard}
-          setVisibleCard={setVisibleCard}/>
-        ))
-      } */}
+        <div className="flex  justify-center items-center mt-9 ">
+          <div
+            key={userData[visibleCard].date}
+            className={` grid grid-cols-1 place-items-center text-3xl gap-3 w-full opacity-100 transition-all duration-1000`}
+          >
+            <div className="text-4xl text-orange-500 font-bold font-serif">
+              {userData[visibleCard].date }
+            </div>
+            <div className="text-2xl break-words whitespace-normal  text-center  ">{userData[visibleCard].event }</div>
+          </div>
+        </div>
       </div>
     </>
   );
