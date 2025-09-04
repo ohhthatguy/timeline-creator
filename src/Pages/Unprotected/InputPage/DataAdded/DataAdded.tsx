@@ -16,7 +16,7 @@ const DataAdded = memo(() => {
 
  
 
- 
+ console.log(userData)
 
 
   return (
@@ -40,7 +40,7 @@ const DataAdded = memo(() => {
             <div className="   flex justify-between items-center">
               <div>{e.date}</div>
               <button className="btn btn-xs" onClick={()=>handleDelete(index)}>X</button>
-              <button className="btn btn-xs" onClick={()=> setEditData(e)}>E</button>
+              <button className="btn btn-xs" onClick={()=> setEditData({...e,index})}>E</button>
 
               {/* <div className="text-xs uppercase font-semibold opacity-60">
                 event

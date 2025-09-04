@@ -36,7 +36,7 @@ const Timeline4 = ({ userData }: { userData: any }) => {
 
   return (
     <>
-      <div className="h-1/2 w-full overflow-auto border border-red-500  px-5 ml-3 mr-3 my-2  ">
+      <div className="h-1/2 w-full overflow-auto shadow-2xl px-5 ml-3 mr-3 my-10 scale-90 hover:scale-95  hover:cursor-pointer transition-all delay-150">
         <div className=" overflow-x-hidden overflow-y-hidden">
           <div className="flex ml-52  gap-3 mt-3">
             {userData.map((e: any, index: number) => (
@@ -64,7 +64,7 @@ const Timeline4 = ({ userData }: { userData: any }) => {
             <div className="text-4xl text-orange-500 font-bold font-serif">
               {userData[visibleCard].date }
             </div>
-            <div className="text-2xl break-words whitespace-normal  text-center  ">{userData[visibleCard].event }</div>
+            <div className="text-2xl break-all whitespace-normal  text-center  ">{userData[visibleCard].event }</div>
           </div>
         </div>
       </div>

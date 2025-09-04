@@ -1,6 +1,7 @@
 export type userDataType = {
     date?: string,
-    event?: string
+    event?: string,
+    index?: number
 }
 
 

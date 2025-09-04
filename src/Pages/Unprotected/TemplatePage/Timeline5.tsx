@@ -1,57 +1,56 @@
-import { useRef, useState } from "react";
+import { useRef,  } from "react";
 
 const Timeline5 = ({ userData }: { userData: any }) => {
-  const [dist, setDist] = useState(0);
-
+ 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const container = containerRef.current;
-    if (!container) return;
 
-    // Get bounding box of container
-    const { left, width } = container.getBoundingClientRect();
+const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const container = containerRef.current;
+  if (!container) return;
 
-    // Mouse position relative to container
-    const mouseX = e.clientX - left;
+  const { left, width } = container.getBoundingClientRect();
 
-    // Calculate scroll position
-    const scrollWidth = container.scrollWidth - container.clientWidth;
-    const scrollPos = (mouseX / width) * scrollWidth;
-    console.log(scrollPos);
-    console.log(scrollWidth);
-    console.log(container.scrollWidth);
-    console.log(container.clientWidth);
+  // mouse position inside container (0 → width)
+  const mouseX = e.clientX - left;
 
-    // container.scrollLeft = scrollPos;
-    // return scrollPos
-    setDist(scrollPos * -1);
-  };
+  // progress (0 → 1)
+  const progress = mouseX / width;
+
+  // how much we can scroll
+  const maxScroll = container.scrollWidth - container.clientWidth;
+
+  // final scroll position
+  const scrollPos = progress * maxScroll;
+
+  // Apply scroll
+  container.scrollLeft = scrollPos;
+};
 
   return (
     <>
-      <div
-        className="h-1/2 w-full overflow-auto border border-red-500  px-5 ml-3 mr-3 my-2  "
-        onMouseMove={handleMouseMove}
-      >
+      
         <div
-          ref={containerRef}
-          className="flex gap-2  h-full w-fit "
-        >
-          {userData.map((e: any, index: number) => (
-            <div
-              key={index}
-              className="border w-60  px-2 p hover:cursor-pointer"
-              style={{ transform: `translateX(${dist}px)` }}
-            >
-              <section className="text-3xl text-white">{e.date}</section>
-              <section className="text-sm text-white mt-2 overflow-y-auto  break-words whitespace-normal  ">
-                {e.event}
-              </section>
-            </div>
-          ))}
-        </div>
+  className="h-1/2 w-full overflow-auto px-10 py-3 ml-3 mr-3 my-10 shadow-2xl scale-90 hover:scale-95  hover:cursor-pointer transition-all delay-150"
+  onMouseMove={handleMouseMove}
+  ref={containerRef} // attach ref to scrollable parent
+>
+  <div className="flex gap-2 h-full">
+    {userData.map((e: any, index: number) => (
+      <div
+        key={index}
+        className="border w-72 px-2 hover:cursor-pointer rounded-sm shadow-md shadow-ring "
+      >
+        <section className="text-3xl text-white">{e.date}</section>
+        <section className="text-sm text-white mt-2 overflow-y-auto break-words whitespace-normal">
+          {e.event}
+        </section>
       </div>
+    ))}
+  </div>
+
+</div>
+
     </>
   );
 };

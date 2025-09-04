@@ -6,7 +6,7 @@ const Timeline3 = ({ userData }: { userData: any }) => {
   console.log(userData);
  const [visibleCard, setVisibleCard] = useState(0);
   return (<>
-  <div className='h-1/2 w-full overflow-auto border flex  px-5 ml-3 mr-3 my-2 '>
+  <div className='h-1/2 w-full overflow-auto  flex  px-5 ml-3 mr-3 my-10  shadow-2xl scale-90 hover:scale-95  hover:cursor-pointer transition-all delay-150'>
       {
         userData?.map((e:any,index:any)=>(
          <Fragement3 index={index} data={e}  visibleCard={visibleCard}

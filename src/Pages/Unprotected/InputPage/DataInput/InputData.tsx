@@ -1,5 +1,5 @@
 import { memo, useContext, useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Dialog } from "./Calander";
 import { GlobalContext } from "@/context/context";
 
@@ -26,27 +26,44 @@ const InputData = memo(() => {
     console.log(date);
     console.log(message);
 
-    if (typeof date === "string" && typeof message === "string") {
-      setUserData((prev) => [
-        ...prev,
-        {
-          date: date,
-          event: message,
-        },
-      ]);
+    if (Object.keys(editData).length > 0 && typeof date === "string" && typeof message === "string") {
+      console.log("here")
 
-      setEditData({})
-      e.currentTarget.reset();
+      const edited =  userData.map(
+          (e, ind) =>
+            ind === editData.index
+              ? { ...e,   date: date, event: message} // update
+              : e // unchanged
+        )
+        console.log(editData)
+        console.log(edited) 
+        // console.log(edited)
+
+      setUserData(edited);
+    
+
     } else {
-      console.error("Form values are invalid");
+      if (typeof date === "string" && typeof message === "string") {
+        setUserData((prev) => [
+          ...prev,
+          {
+            date: date,
+            event: message,
+          },
+        ]);
+
+       
+      } else {
+        console.error("Form values are invalid");
+      }
     }
+
+
+     setEditData({});
+        e.currentTarget.reset();
   };
 
-  useEffect(() => {
-    if (editData.date && editData.event) {
-    }
-  }, [editData]);
-
+  console.log(userData)
   return (
     <form
       className="sm:flex  sm:justify-center sm:item-center   "
@@ -66,13 +83,17 @@ const InputData = memo(() => {
           required
         ></textarea>
 
-      <div className="flex w-full gap-3">
-        <button type="submit" className="btn btn-neutral mt-4 flex-1">
-          Add
-        </button>
-         <button onClick={()=>navigate("/TemplatePage")} type="button" className="btn btn-primary mt-4 flex-1">
-          Generate
-        </button>
+        <div className="flex w-full gap-3">
+          <button type="submit" className="btn btn-neutral mt-4 flex-1">
+            {Object.keys(editData).length > 0 ? "Edit" : "Add"}
+          </button>
+          <button
+            onClick={() => navigate("/TemplatePage")}
+            type="button"
+            className="btn btn-primary mt-4 flex-1"
+          >
+            Generate
+          </button>
         </div>
       </fieldset>
     </form>
