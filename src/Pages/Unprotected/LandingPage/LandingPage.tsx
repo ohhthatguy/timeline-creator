@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import demoHeroImg from "/basic.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ const LandingPage = () => {
     
 
       <section className="h-[calc(100vh-8rem)] flex justify-center">
-        <img className="h-[100%] w-[100%] object-contain " src={demoHeroImg} />
+        <img className="h-[100%] w-[100%] object-contain " src="/basic.png" />
       </section>
 
       {/* h-fit m:h-[20%] tablet:h-[50%]  */}
