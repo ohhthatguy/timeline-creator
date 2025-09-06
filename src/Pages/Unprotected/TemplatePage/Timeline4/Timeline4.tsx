@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { useGenerateCodeTemplate4 } from "@/Hooks/useGenerateCode";
 
 const getOnlyYear = (dateString: string) => {
   const year = dateString.split("/");
   return year[year.length - 1];
 };
 
+
 const Timeline4 = ({ userData }: { userData: any }) => {
   const [visibleCard, setVisibleCard] = useState(0);
 
+   const [copied, setCopied] = useState(false);
 
   const [positionX, setpositionX] = useState(1);
 
@@ -33,10 +36,30 @@ const Timeline4 = ({ userData }: { userData: any }) => {
     }
   };
 
+  
+   const handleCodeCopy = async()=>{
+          
+          try{
+              const finalcode = useGenerateCodeTemplate4(userData);
+              await navigator.clipboard.writeText(finalcode);
+              alert('copied!')
+  
+                  // change button class
+   setCopied(true)
+  
+          }catch(err){
+              console.log('error: ', err)
+          }
+      }
+
 
   return (
     <>
-      <div className="h-1/2 w-full overflow-auto shadow-2xl px-5 ml-3 mr-3 my-10 scale-90 hover:scale-95  hover:cursor-pointer transition-all delay-150">
+      <div className="h-1/2 w-full relative overflow-auto shadow-2xl px-5 ml-3 mr-3 my-10 scale-90   hover:cursor-pointer transition-all delay-150">
+      <div  className=" absolute bottom-10 left-[-20px] rotate-[270deg]">
+          <button onClick={handleCodeCopy} className={` btn ${copied ? "btn-neutral" : "btn-primary"} btn-xs `}>Copy Code</button>
+        </div>
+        
         <div className=" overflow-x-hidden overflow-y-hidden">
           <div className="flex ml-52  gap-3 mt-3">
             {userData.map((e: any, index: number) => (

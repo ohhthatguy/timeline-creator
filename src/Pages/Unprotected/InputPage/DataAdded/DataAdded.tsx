@@ -21,35 +21,32 @@ const DataAdded = memo(() => {
 
   return (
     <>
-      {/* <ul className=" grid place-items-center  p-4 rounded-box shadow-md h-32 overflow-y-auto ">
+       {/* <section className=" grid grid-cols-1 l:grid-cols-2 sm:grid-cols-3 border laptop:grid-cols-4 gap-4  w-full px-4 py-2 rounded-box shadow-md h-32 laptop:h-80 overflow-y-auto ">
         {userData?.map((e, index) => (
-          <li className=" rounded-box w-full sm:w-9/12  bg-white mb-2  p-4" key={index}>
+          <div className=" rounded-box w-full  min-h-56 bg-white mb-2 l:w-11/12  p-4 overflow-y-auto" key={index}>
             <div className="   flex justify-between items-center">
-              <div>{e.date}</div>
-              <button className="btn btn-xs" onClick={()=>handleDelete(index)}>X</button>
-             
-            </div>
-            <p className="list-col-wrap text-xs font-semibold ">{e.event}</p>
-          </li>
-        ))}
-      </ul> */}
-
-       <section className=" grid grid-cols-1 l:grid-cols-2 sm:grid-cols-3 laptop:grid-cols-4 gap-4   w-full p-4 rounded-box shadow-md h-32 laptop:h-80 overflow-y-auto ">
-        {userData?.map((e, index) => (
-          <div className=" rounded-box w-full  bg-white mb-2 l:w-11/12  p-4" key={index}>
-            <div className="   flex justify-between items-center">
-              <div>{e.date}</div>
+              <div className="text-sm">{e.date}</div>
               <button className="btn btn-xs" onClick={()=>handleDelete(index)}>X</button>
               <button className="btn btn-xs" onClick={()=> setEditData({...e,index})}>E</button>
-
-              {/* <div className="text-xs uppercase font-semibold opacity-60">
-                event
-              </div> */}
             </div>
-            <p className="list-col-wrap text-xs font-semibold ">{e.event}</p>
+            <p className="list-col-wrap text-xs font-semibold break-words ">{e.event}</p>
+          </div>
+        ))}
+      </section> */}
+
+       <section className="flex overflow-x-auto gap-3 px-4 py-2 h-44  ">
+        {userData?.map((e, index) => (
+          <div className=" rounded-box shrink-0 bg-white w-full l:w-6/12 bigtablet:w-4/12 laptop:w-3/12 h-full p-4 overflow-y-auto" key={index}>
+            <div className="   flex justify-between items-center">
+              <div className="text-sm">{e.date}</div>
+              <button className="btn btn-xs" onClick={()=>handleDelete(index)}>X</button>
+              <button className="btn btn-xs" onClick={()=> setEditData({...e,index})}>E</button>
+            </div>
+            <p className="list-col-wrap text-xs font-semibold break-words ">{e.event}</p>
           </div>
         ))}
       </section>
+    
     </>
   );
 });

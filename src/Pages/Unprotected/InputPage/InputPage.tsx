@@ -3,8 +3,9 @@ import DataAdded from "./DataAdded/DataAdded"
 
 const InputPage = () => {
   return (
-   <div className="py-4 ">
-      <div className="breadcrumbs text-sm px-16">
+   <div className="py-2 ">
+    <div className="px-4">
+      <div className="breadcrumbs text-sm ">
         <ul>
           <li>
             <a>Home</a>
@@ -15,9 +16,11 @@ const InputPage = () => {
           
         </ul>
       </div>
+        <div className="  text-lg  ">Please Enter Data</div>
+
+    </div>
 
       
-        <div className=" px-16 text-3xl mb-4">Please Enter Data</div>
       
       <InputData />
       <DataAdded />

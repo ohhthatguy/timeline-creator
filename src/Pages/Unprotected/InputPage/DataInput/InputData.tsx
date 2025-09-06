@@ -1,7 +1,8 @@
-import { memo, useContext, useEffect } from "react";
+import { memo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Dialog } from "./Calander";
 import { GlobalContext } from "@/context/context";
+
 
 const InputData = memo(() => {
   const navigate = useNavigate();
@@ -26,22 +27,24 @@ const InputData = memo(() => {
     console.log(date);
     console.log(message);
 
-    if (Object.keys(editData).length > 0 && typeof date === "string" && typeof message === "string") {
-      console.log("here")
+    if (
+      Object.keys(editData).length > 0 &&
+      typeof date === "string" &&
+      typeof message === "string"
+    ) {
+      console.log("here");
 
-      const edited =  userData.map(
-          (e, ind) =>
-            ind === editData.index
-              ? { ...e,   date: date, event: message} // update
-              : e // unchanged
-        )
-        console.log(editData)
-        console.log(edited) 
-        // console.log(edited)
+      const edited = userData.map(
+        (e, ind) =>
+          ind === editData.index
+            ? { ...e, date: date, event: message } // update
+            : e // unchanged
+      );
+      console.log(editData);
+      console.log(edited);
+      // console.log(edited)
 
       setUserData(edited);
-    
-
     } else {
       if (typeof date === "string" && typeof message === "string") {
         setUserData((prev) => [
@@ -51,30 +54,27 @@ const InputData = memo(() => {
             event: message,
           },
         ]);
-
-       
       } else {
         console.error("Form values are invalid");
       }
     }
 
-
-     setEditData({});
-        e.currentTarget.reset();
+    setEditData({});
+    e.currentTarget.reset();
   };
 
-  console.log(userData)
   return (
+
     <form
-      className="sm:flex  sm:justify-center sm:item-center   "
+      className="sm:flex  sm:justify-center sm:item-center  "
       onSubmit={handleAddData}
     >
-      <fieldset className="fieldset sm:w-9/12 laptop:w-7-12 rounded-box   p-4">
-        <label className="label text-white">Date</label>
+      <fieldset className="fieldset sm:w-9/12 laptop:w-7/12 rounded-box  px-4 py-2">
+        <label className="label text-white text-sm">Date</label>
 
         <Dialog />
 
-        <label className="label text-white">Text</label>
+        <label className="label text-white text-sm">Text</label>
         <textarea
           className="textarea text-white w-full"
           name="area"
@@ -83,21 +83,22 @@ const InputData = memo(() => {
           required
         ></textarea>
 
-        <div className="flex w-full gap-3">
-          <button type="submit" className="btn btn-neutral mt-4 flex-1">
+        <div className="flex w-full mt-2 gap-3">
+          <button type="submit" className="btn btn-neutral  flex-1">
             {Object.keys(editData).length > 0 ? "Edit" : "Add"}
           </button>
           <button
             onClick={() => navigate("/TemplatePage")}
             type="button"
-            className="btn btn-primary mt-4 flex-1"
+            className="btn btn-primary  flex-1"
           >
             Generate
           </button>
         </div>
       </fieldset>
     </form>
-  );
+
+   );
 });
 
 export default InputData;

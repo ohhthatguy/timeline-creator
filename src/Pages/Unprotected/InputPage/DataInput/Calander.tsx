@@ -73,6 +73,9 @@ export function Dialog() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    
+
     setInputValue(e.target.value); // Keep the input value in sync
 
     const parsedDate = parse(e.target.value, "MM/dd/yyyy", new Date());
@@ -100,6 +103,7 @@ export function Dialog() {
         placeholder="MM/dd/yyyy"
         onChange={handleInputChange}
         onClick={toggleDialog}
+        readOnly
         required
       />{" "}
 

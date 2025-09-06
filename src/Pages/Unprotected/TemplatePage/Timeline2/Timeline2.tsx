@@ -1,8 +1,31 @@
+import { useGenerateCode } from "@/Hooks/useGenerateCode";
+import { useState } from "react";
+
 const Timeline2 = ({ userData }: { userData: any }) => {
-  console.log(userData);
+   const [copied, setCopied] = useState(false);
+  
+
+   const handleCodeCopy = async()=>{
+          console.log('asd');
+          try{
+              const finalcode = useGenerateCode(userData,2);
+              await navigator.clipboard.writeText(finalcode);
+              alert('copied!')
+   // change button class
+   setCopied(true)
+              
+  
+          }catch(err){
+              console.log('error: ', err)
+          }
+      }
 
   return (
-    <div className="h-1/2 w-full overflow-auto   flex  px-5 ml-3 mr-3  my-10  shadow-2xl  scale-90 hover:scale-95  hover:cursor-pointer transition-all delay-150 ">
+    <div  className="h-1/2 w-full overflow-auto arelative  flex  px-5 ml-3 mr-3  my-10  shadow-2xl  scale-90   hover:cursor-pointer transition-all delay-150 ">
+  <div  className=" absolute bottom-10 left-[-20px] rotate-[270deg] z-10">
+          <button onClick={handleCodeCopy} className={` btn ${copied ? "btn-neutral" : "btn-primary"} btn-xs `}>Copy Code</button>
+        </div>
+      
       {userData?.map((e: any, index: any) => (
         <div key={index} className="h-full w-[200px] sm:w-1/4 shrink-0  ">
           <div className="  flex flex-col    h-full relative">

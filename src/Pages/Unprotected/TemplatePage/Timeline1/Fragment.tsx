@@ -1,6 +1,6 @@
 // import { FaDotCircle } from "react-icons/fa";
 // import { FaCircle } from "react-icons/fa6";
-import { VscTriangleDown } from "react-icons/vsc";
+// import { VscTriangleDown } from "react-icons/vsc";
 
 const Fragment = ({ data, index }: { data: any; index: number }) => {
   console.log(data);
@@ -13,16 +13,10 @@ const Fragment = ({ data, index }: { data: any; index: number }) => {
 
         <hr className="w-full  border-t-4  border-[#498CF1] my-2 absolute " />
 
-        {/* <span className="border border-red-500">X</span> */}
-
-        {/* <div className="h-1/2 w-px bg-red-500 mx-2 absolute"></div> */}
+  
 
         <div className=" h-1/6 text-center   mt-0  overflow-auto  ">
-          {/* <span className=" "> */}
-          {/* <FaDotCircle /> */}
-          {/* <FaCircle /> */}
-          <VscTriangleDown />
-          {/* </span> */}
+      
           <div className="h-1/2 w-px bg-[#498CF1] mx-2 "></div>
 
           <div className="font-semibold text-lg absolute  w-full  text-start pr-3 break-words leading-tight tracking-tight">{data.event}</div>

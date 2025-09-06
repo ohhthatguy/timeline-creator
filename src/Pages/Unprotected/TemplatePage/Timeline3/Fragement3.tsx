@@ -48,11 +48,11 @@ const Fragement3 = ({
 
         {/* card  */}
         <div
-          className={
-            visibleCard == index
-              ? " h-56 break-all p-2 grid place-items-center mt-8 bg-[#48648d]"
-              : "hidden"
-          }
+          className={`
+            ${visibleCard >= index
+              ? " h-56 break-all p-2 grid place-items-center mt-8 bg-[#48648d] "
+              : "hidden"} 
+          `}
         >
           {data.event}
         </div>
