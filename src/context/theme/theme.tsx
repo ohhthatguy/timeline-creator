@@ -8,7 +8,15 @@ type themeContextType =
     }
   | undefined;
 
+type alignmentContextType =
+  | {
+      alignment: "vertical" | "horizontal";
+      setAlignment: (ele: "vertical" | "horizontal") => void;
+    }
+  | undefined;
+
 const ThemeContext = createContext<themeContextType>(undefined);
+const AlignmentContext = createContext<alignmentContextType>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const initalTheme =
@@ -40,9 +48,39 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+export const AlignmentProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const alignmentInLocalStorage =
+    (localStorage.getItem("ui-alignment") as "vertical" | "horizontal") ||
+    "vertical";
+  const [alignment, setAlignment] = useState<"vertical" | "horizontal">(
+    alignmentInLocalStorage,
+  );
+
+  useEffect(() => {
+    localStorage.setItem("ui-alignment", alignment);
+  }, [alignment]);
+
+  return (
+    <AlignmentContext.Provider value={{ alignment, setAlignment }}>
+      {children}
+    </AlignmentContext.Provider>
+  );
+};
+
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context)
     throw new Error("Theme context is not set / a value is missing");
+  return context;
+};
+
+export const useAlignment = () => {
+  const context = useContext(AlignmentContext);
+  if (!context)
+    throw new Error("Alignmnet context is not set / a value is missing");
   return context;
 };

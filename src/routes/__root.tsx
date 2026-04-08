@@ -1,6 +1,9 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import "../styles.css";
 import { ThemeProvider } from "#/context/theme/theme";
+import { AlignmentProvider } from "#/context/theme/theme";
+import Header from "#/components/HomePage/Header";
+import Footer from "#/components/HomePage/Footer";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -10,9 +13,13 @@ function RootComponent() {
   return (
     <>
       <ThemeProvider>
-        <div className=" text-text_color transition-colors duration-500">
-          <Outlet />
-        </div>
+        <AlignmentProvider>
+          <div className=" text-text_color transition-colors duration-500">
+            <Header />
+            <Outlet />
+            <Footer />
+          </div>
+        </AlignmentProvider>
       </ThemeProvider>
     </>
   );

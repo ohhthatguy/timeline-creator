@@ -1,97 +1,13 @@
+import type { TimelineComponentNameType } from "./CreateDemoData";
+import { timelineList, TimelineComponents } from "./CreateDemoData";
+
 import { useNavigate } from "@tanstack/react-router";
-
+import { useAlignment } from "#/context/theme/theme";
 import { createDemoData } from "./CreateDemoData";
-import Vertical1 from "../Vertical/Vertical1";
-import Vertical2 from "../Vertical/Vertical2";
-import Vertical3 from "../Vertical/Vertical3";
-import Vertical4 from "../Vertical/Vertical4";
-import Vertical5 from "../Vertical/Vertical5";
-import Horizontal2 from "../Horizontal/Horizontal2";
-import Horizontal1 from "../Horizontal/Horizontal1";
-import Horizontal3 from "../Horizontal/Horizontal3";
-import Horizontal4 from "../Horizontal/Horizontal4";
 
-const Create = ({ alignment }: { alignment: "vertical" | "horizontal" }) => {
+const Create = () => {
   const navigate = useNavigate();
-
-  type listDataType = {
-    id: number;
-    name: string;
-    description: string;
-    component: any;
-  };
-
-  type timelineListType = {
-    alignment: "vertical" | "horizontal";
-    data: listDataType[];
-  };
-
-  const timelineList: timelineListType[] = [
-    {
-      alignment: "vertical",
-      data: [
-        {
-          id: 100,
-          name: "Vertical 1",
-          description: "A vertical 1 list",
-          component: <Vertical1 data={createDemoData} />,
-        },
-        {
-          id: 101,
-          name: "Vertical 2",
-          description: "A vertical 2 list",
-          component: <Vertical2 data={createDemoData} />,
-        },
-        {
-          id: 102,
-          name: "Vertical 3",
-          description: "A vertical 3 list",
-          component: <Vertical3 data={createDemoData} />,
-        },
-        {
-          id: 103,
-          name: "Vertical 4",
-          description: "A vertical 4 list",
-          component: <Vertical4 data={createDemoData} />,
-        },
-        {
-          id: 104,
-          name: "Vertical 5",
-          description: "A vertical 5 list",
-          component: <Vertical5 data={createDemoData} />,
-        },
-      ],
-    },
-    {
-      alignment: "horizontal",
-      data: [
-        {
-          id: 105,
-          name: "Horizontal 1",
-          description: "horizontal 1 wala",
-          component: <Horizontal1 data={createDemoData} />,
-        },
-        {
-          id: 106,
-          name: "Horizontal 2",
-          description: "horizontal 2 wala",
-          component: <Horizontal2 data={createDemoData} />,
-        },
-        {
-          id: 107,
-          name: "Horizontal 3",
-          description: "horizontal 3 wala",
-          component: <Horizontal3 data={createDemoData} />,
-        },
-        {
-          id: 108,
-          name: "Horizontal 4",
-          description: "horizontal 4 wala",
-          component: <Horizontal4 data={createDemoData} />,
-        },
-      ],
-    },
-  ];
+  const { alignment } = useAlignment();
 
   const handleSelection = (listId: number) => {
     navigate({ to: "/input", search: { alignment, listId } });
@@ -116,39 +32,44 @@ const Create = ({ alignment }: { alignment: "vertical" | "horizontal" }) => {
         {timelineList
           .filter((ele) => ele.alignment === alignment)
           .map((group, groupIndex) =>
-            group.data.map((item, itemIndex) => (
-              <div
-                key={`${groupIndex}-${itemIndex}`}
-                className=" flex flex-col  overflow-auto"
-              >
-                {/* 1. Component Preview Box */}
+            group.data.map((item, itemIndex) => {
+              const componentKey = item.component as TimelineComponentNameType;
+              const SelectedComponent = TimelineComponents[componentKey];
+              return (
                 <div
-                  className={` grid place-items-center h-[320px] scrollbar-custom overflow-auto border border-tertiary_color p-4 rounded-t-xl bg-secondary_color`}
+                  key={`${groupIndex}-${itemIndex}`}
+                  className=" flex flex-col  overflow-auto"
                 >
-                  {item.component}
-                </div>
+                  {/* 1. Component Preview Box */}
+                  <div
+                    className={` grid place-items-center h-[320px] scrollbar-custom overflow-auto border border-tertiary_color p-4 rounded-t-xl bg-secondary_color`}
+                  >
+                    {/* {item.component} */}
+                    <SelectedComponent data={createDemoData} />
+                  </div>
 
-                {/* 2. Info Footer */}
-                <div className="border-x border-b flex justify-between border-tertiary_color/20 bg-comp_bg p-4 rounded-b-xl">
-                  <div>
-                    <div className="text-xl font-bold text-neutral_color">
-                      {item.name}
+                  {/* 2. Info Footer */}
+                  <div className="border-x border-b flex justify-between border-tertiary_color/20 bg-comp_bg p-4 rounded-b-xl">
+                    <div>
+                      <div className="text-xl font-bold text-neutral_color">
+                        {item.name}
+                      </div>
+                      <div className="text-sm text-neutral_color/60">
+                        {item.description}
+                      </div>
                     </div>
-                    <div className="text-sm text-neutral_color/60">
-                      {item.description}
+                    <div>
+                      <button
+                        className="primary_btn"
+                        onClick={() => handleSelection(item.id)}
+                      >
+                        SELECT
+                      </button>
                     </div>
-                  </div>
-                  <div>
-                    <button
-                      className="primary_btn"
-                      onClick={() => handleSelection(item.id)}
-                    >
-                      SELECT
-                    </button>
                   </div>
                 </div>
-              </div>
-            )),
+              );
+            }),
           )}
       </div>
     </div>

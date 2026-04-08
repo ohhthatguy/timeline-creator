@@ -1,8 +1,109 @@
+import Vertical1 from "../Vertical/Vertical1";
+import Vertical2 from "../Vertical/Vertical2";
+import Vertical3 from "../Vertical/Vertical3";
+import Vertical4 from "../Vertical/Vertical4";
+import Vertical5 from "../Vertical/Vertical5";
+import Horizontal2 from "../Horizontal/Horizontal2";
+import Horizontal1 from "../Horizontal/Horizontal1";
+import Horizontal3 from "../Horizontal/Horizontal3";
+import Horizontal4 from "../Horizontal/Horizontal4";
+
+export const TimelineComponents = {
+  Vertical1,
+  Vertical2,
+  Vertical3,
+  Vertical4,
+  Vertical5,
+  Horizontal2,
+  Horizontal3,
+  Horizontal4,
+  Horizontal1,
+} as const;
+
+export type TimelineComponentNameType = keyof typeof TimelineComponents;
+export type listDataType = {
+  id: number;
+  name: string;
+  description: string;
+  component: TimelineComponentNameType;
+};
+
+export type timelineListType = {
+  alignment: "vertical" | "horizontal";
+  data: listDataType[];
+};
+export const timelineList: timelineListType[] = [
+  {
+    alignment: "vertical",
+    data: [
+      {
+        id: 100,
+        name: "Vertical 1",
+        description: "A vertical 1 list",
+        component: "Vertical1",
+      },
+      {
+        id: 101,
+        name: "Vertical 2",
+        description: "A vertical 2 list",
+        component: "Vertical2",
+      },
+      {
+        id: 102,
+        name: "Vertical 3",
+        description: "A vertical 3 list",
+        component: "Vertical3",
+      },
+      {
+        id: 103,
+        name: "Vertical 4",
+        description: "A vertical 4 list",
+        component: "Vertical4",
+      },
+      {
+        id: 104,
+        name: "Vertical 5",
+        description: "A vertical 5 list",
+        component: "Vertical5",
+      },
+    ],
+  },
+  {
+    alignment: "horizontal",
+    data: [
+      {
+        id: 105,
+        name: "Horizontal 1",
+        description: "horizontal 1 wala",
+        component: "Horizontal1",
+      },
+      {
+        id: 106,
+        name: "Horizontal 2",
+        description: "horizontal 2 wala",
+        component: "Horizontal2",
+      },
+      {
+        id: 107,
+        name: "Horizontal 3",
+        description: "horizontal 3 wala",
+        component: "Horizontal3",
+      },
+      {
+        id: 108,
+        name: "Horizontal 4",
+        description: "horizontal 4 wala",
+        component: "Horizontal4",
+      },
+    ],
+  },
+];
+
 export type createDemoDataType = {
   topic: string;
   description: string;
   date: string; //yyyy-mm-dd
-  id: number;
+  id: number | undefined;
 };
 
 export const createDemoData: createDemoDataType[] = [

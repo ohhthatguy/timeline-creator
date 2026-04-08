@@ -1,35 +1,37 @@
 import { Sun, Moon, MoveHorizontal, MoveVertical } from "lucide-react";
-import { useTheme } from "#/context/theme/theme";
+import { useTheme, useAlignment } from "#/context/theme/theme";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 
-const Header = ({
-  alignment,
-  setAlignment,
-}: {
-  alignment: "vertical" | "horizontal";
-  setAlignment: React.Dispatch<React.SetStateAction<"vertical" | "horizontal">>;
-}) => {
+const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
+  const { alignment, setAlignment } = useAlignment();
   return (
     <div className="flex justify-between  items-center p-4 bg-header_color">
-      <div className="font-bold text-[clamp(1rem,2vw+0.1rem,1.5rem)]">
+      <div
+        className="font-bold text-[clamp(1rem,2vw+0.1rem,1.5rem)] hover:cursor-pointer "
+        onClick={() => navigate({ to: "/" })}
+      >
         TimelineCreator
       </div>
 
       <div className="flex gap-6">
-        <div className=" grid place-items-center">
-          {alignment === "horizontal" ? (
-            <MoveHorizontal
-              onClick={() => setAlignment("vertical")}
-              className="hover:cursor-pointer w-[clamp(1.25rem,2vw+0.1rem,1.5rem)] h-[clamp(1.25rem,2vw+0.1rem,1.5rem)] "
-            />
-          ) : (
-            <MoveVertical
-              onClick={() => setAlignment("horizontal")}
-              className="hover:cursor-pointer w-[clamp(1.25rem,2vw+0.1rem,1.5rem)] h-[clamp(1.25rem,2vw+0.1rem,1.5rem)] "
-            />
-          )}
-        </div>
-
+        {location.pathname === "/create" && (
+          <div className=" grid place-items-center">
+            {alignment === "horizontal" ? (
+              <MoveHorizontal
+                onClick={() => setAlignment("vertical")}
+                className="hover:cursor-pointer w-[clamp(1.25rem,2vw+0.1rem,1.5rem)] h-[clamp(1.25rem,2vw+0.1rem,1.5rem)] "
+              />
+            ) : (
+              <MoveVertical
+                onClick={() => setAlignment("horizontal")}
+                className="hover:cursor-pointer w-[clamp(1.25rem,2vw+0.1rem,1.5rem)] h-[clamp(1.25rem,2vw+0.1rem,1.5rem)] "
+              />
+            )}
+          </div>
+        )}
         <div
           onClick={() =>
             theme === "light" ? setTheme("dark") : setTheme("light")
