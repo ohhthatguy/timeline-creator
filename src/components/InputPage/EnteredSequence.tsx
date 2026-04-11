@@ -24,7 +24,7 @@ const EnteredSequence = ({
   };
   return (
     <div className={`py-8 ${inputData.length > 0 ? "block" : "hidden"}`}>
-      <div className="flex justify-between items-center gap-4 ">
+      <div className="flex justify-between items-center gap-4">
         <div className="grid gap-2">
           <div className="text-[clamp(2rem,3vw+0.6rem,4rem)] font-extrabold leading-tight">
             Timeline Sequence

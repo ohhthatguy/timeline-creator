@@ -1,7 +1,12 @@
 import { useSearch } from "@tanstack/react-router";
 import type { TimelineComponentNameType } from "../Create/CreateDemoData";
-import { timelineList, TimelineComponents } from "../Create/CreateDemoData";
+import {
+  timelineList,
+  TimelineComponents,
+  TimelineComponentCode,
+} from "../Create/CreateDemoData";
 import { Route } from "#/routes/input";
+import toast from "react-hot-toast";
 
 import type { createDemoDataType } from "../Create/CreateDemoData";
 
@@ -22,13 +27,32 @@ const TimelinePreviewComp = ({
 
   const step2 = step1[0].component as TimelineComponentNameType;
   const FinalComponent = TimelineComponents[step2];
+
+  const handleCopy = () => {
+    const generateCodeFn = TimelineComponentCode[step1[0].componentCode!];
+    const finalCodeString = generateCodeFn({ inputData });
+    navigator.clipboard.writeText(finalCodeString);
+    console.log("Copied to clipboard!", finalCodeString);
+    toast.success("TSX Code Copied Successfully!");
+  };
+
   return (
     <div className={` rounded-md sm:py-0 flex-2 bg-secondary_color  my-4 `}>
       <div className="sm:hidden text-[clamp(2rem,3vw+0.6rem,4rem)] bg-primary_color font-extrabold leading-tight ">
         Timeline Preview
       </div>
 
-      <div className="flex my-2 flex-col gap-4 bg-secondary_color transition-colors  duration-500 px-4 py-8 rounded-md">
+      <div className="flex relative borer my-2 flex-col gap-4 bg-secondary_color transition-colors  duration-500 px-4 py-8 rounded-md">
+        <div
+          className={`${inputData.length > 0 ? "block" : "hidden"}  absolute right-2 z-10 top-0 p-1  rounded-md`}
+        >
+          <button
+            onClick={() => handleCopy()}
+            className="primary_btn hover:cursor-pointer"
+          >
+            /Copy Code
+          </button>
+        </div>
         {inputData.length > 0 ? (
           <FinalComponent data={inputData} />
         ) : (

@@ -60,7 +60,7 @@ const Create = () => {
                     </div>
                     <div>
                       <button
-                        className="primary_btn"
+                        className="primary_btn hover:cursor-pointer"
                         onClick={() => handleSelection(item.id)}
                       >
                         SELECT

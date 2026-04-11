@@ -14,7 +14,7 @@ const Hero = () => {
         </div>
         <div className="flex items-start gap-2 ">
           <button
-            className="primary_btn"
+            className="primary_btn hover:cursor-pointer"
             onClick={() => navigate({ to: "/create" })}
           >
             Try it now

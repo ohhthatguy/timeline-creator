@@ -1,12 +1,27 @@
-import Vertical1 from "../Vertical/Vertical1";
-import Vertical2 from "../Vertical/Vertical2";
-import Vertical3 from "../Vertical/Vertical3";
-import Vertical4 from "../Vertical/Vertical4";
-import Vertical5 from "../Vertical/Vertical5";
-import Horizontal2 from "../Horizontal/Horizontal2";
-import Horizontal1 from "../Horizontal/Horizontal1";
-import Horizontal3 from "../Horizontal/Horizontal3";
-import Horizontal4 from "../Horizontal/Horizontal4";
+import { Vertical1, Vertical1Code } from "../Vertical/Vertical1";
+
+import { Vertical2, Vertical2Code } from "../Vertical/Vertical2";
+import { Vertical3, Vertical3Code } from "../Vertical/Vertical3";
+import { Vertical4, Vertical4Code } from "../Vertical/Vertical4";
+import { Vertical5, Vertical5Code } from "../Vertical/Vertical5";
+import { Horizontal2, Horizontal2Code } from "../Horizontal/Horizontal2";
+import { Horizontal1, Horizontal1Code } from "../Horizontal/Horizontal1";
+import { Horizontal3, Horizontal3Code } from "../Horizontal/Horizontal3";
+import { Horizontal4, Horizontal4Code } from "../Horizontal/Horizontal4";
+
+export const TimelineComponentCode = {
+  Vertical1Code,
+  Vertical2Code,
+  Vertical3Code,
+  Vertical4Code,
+  Vertical5Code,
+  Horizontal1Code,
+  Horizontal2Code,
+  Horizontal3Code,
+  Horizontal4Code,
+} as const;
+
+export type TimelineComponentCodetype = keyof typeof TimelineComponentCode;
 
 export const TimelineComponents = {
   Vertical1,
@@ -26,6 +41,7 @@ export type listDataType = {
   name: string;
   description: string;
   component: TimelineComponentNameType;
+  componentCode?: TimelineComponentCodetype;
 };
 
 export type timelineListType = {
@@ -41,30 +57,35 @@ export const timelineList: timelineListType[] = [
         name: "Vertical 1",
         description: "A vertical 1 list",
         component: "Vertical1",
+        componentCode: "Vertical1Code",
       },
       {
         id: 101,
         name: "Vertical 2",
         description: "A vertical 2 list",
         component: "Vertical2",
+        componentCode: "Vertical2Code",
       },
       {
         id: 102,
         name: "Vertical 3",
         description: "A vertical 3 list",
         component: "Vertical3",
+        componentCode: "Vertical3Code",
       },
       {
         id: 103,
         name: "Vertical 4",
         description: "A vertical 4 list",
         component: "Vertical4",
+        componentCode: "Vertical4Code",
       },
       {
         id: 104,
         name: "Vertical 5",
         description: "A vertical 5 list",
         component: "Vertical5",
+        componentCode: "Vertical5Code",
       },
     ],
   },
@@ -76,24 +97,28 @@ export const timelineList: timelineListType[] = [
         name: "Horizontal 1",
         description: "horizontal 1 wala",
         component: "Horizontal1",
+        componentCode: "Horizontal1Code",
       },
       {
         id: 106,
         name: "Horizontal 2",
         description: "horizontal 2 wala",
         component: "Horizontal2",
+        componentCode: "Horizontal2Code",
       },
       {
         id: 107,
         name: "Horizontal 3",
         description: "horizontal 3 wala",
         component: "Horizontal3",
+        componentCode: "Horizontal3Code",
       },
       {
         id: 108,
         name: "Horizontal 4",
         description: "horizontal 4 wala",
         component: "Horizontal4",
+        componentCode: "Horizontal4Code",
       },
     ],
   },
