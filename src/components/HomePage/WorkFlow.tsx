@@ -1,4 +1,5 @@
 import { FileInput, PawPrintIcon, Code2 } from "lucide-react";
+import PreFooter from "./PreFooter";
 
 const WorkFlow = () => {
   type workFlowDataType = {
@@ -16,7 +17,9 @@ const WorkFlow = () => {
       Icon: (
         <FileInput
           color="brown"
-          className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
+          size={56}
+          className={`p-2 rounded-md  `}
+          // className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
         />
       ),
     },
@@ -27,7 +30,9 @@ const WorkFlow = () => {
       Icon: (
         <PawPrintIcon
           color="purple"
-          className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
+          size={56}
+          className={`p-2 rounded-md  `}
+          // className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
         />
       ),
     },
@@ -38,41 +43,54 @@ const WorkFlow = () => {
       Icon: (
         <Code2
           color="brown"
-          className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
+          size={56}
+          className={`p-2 rounded-md  `}
+          // className="w-[clamp(1.5rem,2vw+0.1rem,3rem)]  h-[clamp(1.5rem,2vw+0.1rem,3rem)] "
         />
       ),
     },
   ];
 
   return (
-    <div className="bg-primary_color  px-4 py-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <div className="bg-primary_color  px-4 sm:px-12 py-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
       <div className="grid gap-6 ">
-        <div className=" ">
-          <div className="font-extrabold text-[clamp(1.5rem,2vw+0.3rem,4rem)]">
+        <div className="  text-white">
+          <div className="font-extrabold text-[clamp(2.5rem,3.5vw,4.5rem)] ">
             WORKING
           </div>
-          <div className="text-sm">
+          <div className="text-lg sm:text-xl ">
             From raw data to profesional visuals in three easy steps.
           </div>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-4 text-card_text_color xs:px-12 xl:px-48 ">
           {workFlowData.map((e: workFlowDataType, index: number) => (
-            <div className="flex gap-4 items-start" key={index}>
-              <div className=" p-1.5 rounded-md bg-comp_bg">{e.Icon}</div>
-              <div>
-                <div className="font-bold">
-                  {index + 1}. {e.topic}
+            <div
+              key={index}
+              className={`
+        p-4 rounded-2xl text-text_color bg-ele_bg flex flex-col card_hover justify-between 
+        ${index === 2 ? "md:col-span-2" : "md:col-span-1"}
+      `}
+            >
+              <div className="flex justify-between items-start">
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10">
+                  {e.Icon}
                 </div>
-                <div>{e.description}</div>
+              </div>
+
+              <div className="">
+                <h3 className="text-2xl font-bold tracking-tight">
+                  {" "}
+                  <span className=" select-none">0{index + 1}. </span>
+                  {e.topic}
+                </h3>
+                <p className="mt-2 text-sm font-medium opacity-70 leading-relaxed max-w-prose">
+                  {e.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="w-full sm:w-5/12  ">
-        <div className=" mt-4 doodle_pattern h-[clamp(6rem,12vw+4rem,22rem)] "></div>
       </div>
     </div>
   );

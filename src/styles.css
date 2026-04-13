@@ -14,31 +14,64 @@
   --color-header_color: var(--header_color);
   --color-text_color: var(--text_color);
   --color-text_muted_color: var(--text_muted-color);
-  --color-comp_bg: var(--secondary_btn_color);
+  --color-comp_bg: var(--comp-bg);
+  --color-ele_bg: var(--ele-bg);
+  --color-atom_bg: var(--atom-bg);
+
+  --color-header_text_color: var(--header_text_color);
+  --color-card_text_color: var(--card_text_color);
+
+  --color-special_comp_bg: var(--special_comp_bg);
 }
 
 :root {
-  --primary_color: hsl(0, 78%, 52%);
+  /* --primary_color: hsl(0, 78%, 52%); */
+  /* --primary_color: hsl(240.42, 61.02%, 40.27%); */
+  --primary_color: #002e6a;
   --secondary_color: hsl(240, 6%, 10%);
   --tertiary_color: hsl(271, 91%, 65%);
   --neutral_color: hsl(240, 6%, 10%);
+
   --header_color: hsl(272.59, 100%, 15.88%);
+  --header_text_color: hsl(0, 0%, 90%);
+
   --text_color: hsl(0, 0%, 90%);
+  --card_text_color: hsl(0, 0%, 20%);
+
   --primary_btn_color: hsl(3.31, 100%, 64.51%);
   --secondary_btn_color: hsl(270, 1.67%, 47.06%);
   --text_muted_color: hsl(276, 4.5%, 22.24%);
+
+  --comp-bg: hsl(0, 0%, 6%);
+  --ele-bg: hsl(0, 0%, 10%);
+  --atom-bg: hsl(0, 0%, 20%);
+  /* --ele-bg: #6177a5; */
+
+  --special_comp_bg: #6177a5;
 }
 
 .dark {
-  --primary_color: hsl(0, 78%, 48%);
+  /* --primary_color: hsl(0, 78%, 48%); */
+  /* --primary_color: hsl(240.42, 61.02%, 82.27%); */
   --secondary_color: hsl(240, 6%, 90%);
   --tertiary_color: hsl(271, 91%, 35%);
   --neutral_color: hsl(240, 6%, 90%);
-  --header_color: hsl(272.59, 100%, 85.12%);
+
+  /* --header_color: hsl(272.59, 100%, 85.12%);
+  --header_text_color: hsl(0, 0%, 90%); */
+
   --text_color: hsl(0, 0%, 0%);
+  --card_text_color: hsl(0, 0%, 90%);
+
   --primary_btn_color: hsl(3.31, 100%, 35.51%);
   --secondary_btn_color: hsl(270, 1.67%, 53.06%);
   --text_muted_color: hsl(276, 4.5%, 78.24%);
+
+  --comp-bg: hsl(0, 0%, 95%);
+  --ele-bg: hsl(0, 0%, 90%);
+  /* --ele-bg: #6177a5; */
+  --atom-bg: hsl(0, 0%, 80%);
+  --special_comp_bg: #6177a5;
 }
 
 @layer utilities {
@@ -72,6 +105,7 @@ html {
   padding: 0.5rem;
   border-radius: 6%;
   font-weight: 900;
+  cursor: pointer;
   /* font-size: small; */
 }
 
@@ -95,4 +129,16 @@ html {
     #e5e5f7 0,
     #e5e5f7 50%
   );
+}
+
+.card_hover {
+  cursor: pointer;
+  transform: scale(1);
+
+  /* duration | timing-function */
+  transition: transform 0.3s ease-out;
+}
+
+.card_hover:hover {
+  transform: scale(1.05);
 }

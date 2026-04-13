@@ -26,10 +26,10 @@ const EnteredSequence = ({
     <div className={`py-8 ${inputData.length > 0 ? "block" : "hidden"}`}>
       <div className="flex justify-between items-center gap-4">
         <div className="grid gap-2">
-          <div className="text-[clamp(2rem,3vw+0.6rem,4rem)] font-extrabold leading-tight">
+          <div className="text-[clamp(2rem,2vw+0.6rem,4rem)] font-extrabold leading-tight text-white">
             Timeline Sequence
           </div>
-          <div className="text-text_muted_color leading-tight text-sm">
+          <div className="text-white leading-tight text-sm">
             {inputData.length > 0
               ? "You can Delete and Edit certain Events"
               : "Your entered data will be shown here."}
@@ -42,20 +42,25 @@ const EnteredSequence = ({
         Preview Timeline
       </div> */}
 
-      <div className="mt-4 grid gap-4 overflow-auto scrollbar-custom sm:h-78">
+      <div className="mt-4 grid bg-comp_bg  overflow-auto scrollbar-custom sm:h-78">
         {inputData.map((e: createDemoDataType) => (
           <div
-            className="flex h-fit items-center gap-4  border-tertiary_color/40 bg-comp_bg rounded-md px-4 py-2"
+            className="flex h-fit relative  gap-4  border-tertiary_color/40   px-4 py-2"
             key={e.id}
           >
-            <div className="">
-              {" "}
-              {/* Prevents the icon from getting squished */}
+            {/* <div className="  w-4 ">
+             
               <TextAlignJustify />
+            </div> */}
+
+            <div className="flex  flex-col items-center  h-full">
+              <div className="w-3 h-3 bg-tertiary_color  rounded-full"></div>
+
+              <div className="w-[2px] absolute h-full bg-tertiary_color  "></div>
             </div>
 
             {/* 1. Added min-w-0 here to allow the container to be smaller than the text */}
-            <div className="grid gap-4  w-full min-w-0">
+            <div className="grid gap-4  w-full min-w-0 py-2">
               <div className="flex justify-between gap-4">
                 {/* 2. Added min-w-0 here as well */}
                 <div className="min-w-0">
@@ -66,19 +71,17 @@ const EnteredSequence = ({
                 <div className="flex gap-6 shrink-0">
                   <Pencil
                     onClick={() => handleEdit(e.id!)}
-                    className="hover:cursor-pointer w-[clamp(1.05rem,2vw+0.1rem,1.5rem)] h-[clamp(1.05rem,2vw+0.1rem,1.5rem)]"
+                    className="hover:cursor-pointer w-[clamp(1.05rem,1vw+0.1rem,1.5rem)] h-[clamp(1.05rem,1vw+0.1rem,1.5rem)]"
                   />
                   <Delete
                     onClick={() => handleDelete(e.id!)}
-                    className="hover:cursor-pointer w-[clamp(1.05rem,2vw+0.1rem,1.5rem)] h-[clamp(1.05rem,2vw+0.1rem,1.5rem)]"
+                    className="hover:cursor-pointer w-[clamp(1.05rem,1vw+0.1rem,1.5rem)] h-[clamp(1.05rem,1vw+0.1rem,1.5rem)]"
                   />
                 </div>
               </div>
 
               {/* 3. Added break-words to ensure long descriptions wrap */}
-              <div className="border border-tertiary_color/10  text-sm break-all">
-                {e.description}
-              </div>
+              <div className="  text-sm break-all">{e.description}</div>
             </div>
           </div>
         ))}

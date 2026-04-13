@@ -16,14 +16,13 @@ const Create = () => {
   return (
     <div className="bg-primary_color px-4 pt-4 pb-8">
       <div className="flex flex-col gap-4 sm:flex-row justify-between sm:items-center">
-        <div className="grid gap-2">
+        <div className="grid gap-2  text-white">
           <div className="text-[clamp(2.5rem,3vw+0.6rem,4rem)] font-extrabold">
             Style Gallery
           </div>
-          <div className="text-text_muted_color leading-tight text-sm">
-            Before Giving the input, please select the type of timeline you
-            require. Each template is fully responsive, production ready,
-            typesafe TSX component.
+          <div className=" leading-tight text-lg sm:text-xl">
+            Each template is fully responsive, production ready, typesafe TSX
+            component.
           </div>
         </div>
       </div>
@@ -42,25 +41,21 @@ const Create = () => {
                 >
                   {/* 1. Component Preview Box */}
                   <div
-                    className={` grid place-items-center h-[320px] scrollbar-custom overflow-auto border border-tertiary_color p-4 rounded-t-xl bg-secondary_color`}
+                    className={` grid place-items-center h-[320px] scrollbar-custom overflow-auto  border-b-tertiary_color p-4 rounded-t-xl bg-atom_bg`}
                   >
                     {/* {item.component} */}
                     <SelectedComponent data={createDemoData} />
                   </div>
 
                   {/* 2. Info Footer */}
-                  <div className="border-x border-b flex justify-between border-tertiary_color/20 bg-comp_bg p-4 rounded-b-xl">
+                  <div className="border-x border-b flex justify-between border-tertiary_color/20 bg-atom_bg p-4 rounded-b-xl">
                     <div>
-                      <div className="text-xl font-bold text-neutral_color">
-                        {item.name}
-                      </div>
-                      <div className="text-sm text-neutral_color/60">
-                        {item.description}
-                      </div>
+                      <div className="text-xl font-bold ">{item.name}</div>
+                      <div className="text-sm ">{item.description}</div>
                     </div>
                     <div>
                       <button
-                        className="primary_btn hover:cursor-pointer"
+                        className="primary_btn hover:scale-105 scale-100 transition-all duration-300"
                         onClick={() => handleSelection(item.id)}
                       >
                         SELECT

@@ -37,14 +37,16 @@ const TimelinePreviewComp = ({
   };
 
   return (
-    <div className={` rounded-md sm:py-0 flex-2 bg-secondary_color  my-4 `}>
-      <div className="sm:hidden text-[clamp(2rem,3vw+0.6rem,4rem)] bg-primary_color font-extrabold leading-tight ">
+    <div
+      className={` rounded-md sm:py-0 flex-2 bg-special_comp_bg  my-4 break-all`}
+    >
+      <div className="sm:hidden relative text-[clamp(2rem,3vw+0.6rem,4rem)] bg-primary_color font-extrabold leading-tight ">
         Timeline Preview
       </div>
 
-      <div className="flex relative borer my-2 flex-col gap-4 bg-secondary_color transition-colors  duration-500 px-4 py-8 rounded-md">
+      <div className="flex  relative my-2 flex-col gap-4 bg-special_comp_bg transition-colors  duration-500 px-4 py-8 rounded-md">
         <div
-          className={`${inputData.length > 0 ? "block" : "hidden"}  absolute right-2 z-10 top-0 p-1  rounded-md`}
+          className={`${inputData.length > 0 ? "block" : "hidden"}  text-right rounded-md`}
         >
           <button
             onClick={() => handleCopy()}

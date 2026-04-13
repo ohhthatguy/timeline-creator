@@ -209,3 +209,27 @@ export const createDemoData: createDemoDataType[] = [
     date: "2021-05-16",
   },
 ];
+
+export const smallCreateDemoData: createDemoDataType[] = [
+  {
+    id: 1,
+    topic: "The Come Up",
+    description:
+      "Release of his debut mixtape, marking his official entry into the rap game.",
+    date: "2007-10-24",
+  },
+  {
+    id: 2,
+    topic: "Roc Nation Signing",
+    description:
+      "J. Cole becomes the first artist signed to Jay-Z's Roc Nation label.",
+    date: "2009-02-24",
+  },
+  {
+    id: 3,
+    topic: "The Warm Up",
+    description:
+      "A breakout mixtape that established him as a premier lyricist in hip-hop.",
+    date: "2009-06-15",
+  },
+];

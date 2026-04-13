@@ -8,7 +8,7 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const { alignment, setAlignment } = useAlignment();
   return (
-    <div className="flex justify-between  items-center p-4 bg-header_color">
+    <div className="flex justify-between  items-center p-4 bg-header_color text-header_text_color">
       <div
         className="font-bold text-[clamp(1rem,2vw+0.1rem,1.5rem)] hover:cursor-pointer "
         onClick={() => navigate({ to: "/" })}

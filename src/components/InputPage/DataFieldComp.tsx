@@ -37,22 +37,17 @@ const DataFieldComp = ({
   };
 
   return (
-    <div className="flex-1  sm:min-w-72">
-      <div className="grid gap-2">
-        <div className="text-[clamp(2.5rem,3vw+0.6rem,4rem)] font-extrabold">
-          Project Editor
-        </div>
-        <div className="text-text_muted_color leading-tight text-sm">
-          PLease enter Date, Topic and Description as required to your timeline.
-        </div>
+    <div className="flex-1  sm:min-w-72 ">
+      <div className="text-[clamp(2.5rem,3vw+0.6rem,4rem)] font-extrabold text-white">
+        Project Editor
       </div>
 
       {/* input field */}
-      <div className="  border-tertiary_color/20">
-        <div className="mb-4">
+      <div className=" rounded-md px-4 py-8 bg-special_comp_bg ">
+        <div className="mb-6">
           <label className="">Date / TimeStamp</label>
           <input
-            className="border rounded-xl w-full px-4 py-2  mt-2 "
+            className="border rounded-xl w-full px-4 py-2  mt-2 bg-primary_color"
             type="date"
             value={localInput.date}
             onChange={(e) =>
@@ -61,10 +56,10 @@ const DataFieldComp = ({
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-6">
           <label className="">EVENT TOPIC</label>
           <input
-            className="border rounded-xl w-full px-4 py-2  mt-2 "
+            className="border rounded-xl w-full px-4 py-2 bg-primary_color mt-2 "
             placeholder=" John Doe"
             value={localInput.topic}
             onChange={(e) =>
@@ -77,7 +72,7 @@ const DataFieldComp = ({
         <div className="">
           <label className="">EVENT DESCRIPTION</label>
           <textarea
-            className="border rounded-xl w-full px-4 py-2  mt-2 "
+            className="border rounded-xl w-full bg-primary_color px-4 py-2  mt-2 "
             placeholder=" John Doe"
             rows={4}
             value={localInput.description}
@@ -90,7 +85,7 @@ const DataFieldComp = ({
           />
         </div>
 
-        <div className="mb-4 flex justify-center items-center">
+        <div className="my-4 flex justify-center items-center">
           <button className="primary_btn" onClick={handleAnotherEvent}>
             {isEdit ? "Update Event" : "+ Add Another Event"}
           </button>

@@ -27,6 +27,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const root = window.document.documentElement; //selsect the main html file
     root.classList.remove("light", "dark");
+    // root.classList.add("light");
 
     if (theme === "system") {
       const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
